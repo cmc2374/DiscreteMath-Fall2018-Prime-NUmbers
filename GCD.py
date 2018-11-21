@@ -1,18 +1,18 @@
-print("Hello World ")
-print("Enter Two Numbers: ")
 
-x = input()
-y = input()
+def gcd_alg(x, y):
 
+    #Modulus result determines if we have reached the GCD
+    c = int(x) % int(y)
 
+    #Base Case
+    if c == 0:
+        print(y)
+        return y
 
-def GCD(p, q):
-
-    c = p % q
-    if (c == 0):
-        return q
+    # Recursive Call
     else:
-        return GCD(q, c)
+        return gcd_alg(y, c)
 
 
-print(GCD(int(x),int(y)))
+
+
