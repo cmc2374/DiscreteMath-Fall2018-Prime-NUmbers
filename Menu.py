@@ -3,6 +3,7 @@
 import GCD
 import Sieve
 import Primality
+import gen_image
 from tkinter import *
 
 class Application(Frame):
@@ -13,9 +14,9 @@ class Application(Frame):
         GCD.gcd_alg(x,y)
 
     def generate_primes(self):
-        print("How Many Primes")
+        print("Generate Primes up to: ")
         x = input()
-        Sieve.table(Sieve.sieve(x))
+        print(Sieve.sieve(x))
 
     def primality_test_d(self):
         print("Enter A Number")
@@ -26,6 +27,16 @@ class Application(Frame):
         print("Enter A Number")
         x = input()
         Primality.sieve_sift(x, Primality.sieve(x))
+
+    def primality_test_f(self):
+        print("Enter A Number")
+        x = input()
+        Primality.fermats_little(x)
+
+    def generate_image(self):
+         print("Enter A Number")
+         x = input()
+         gen_image.gen_image(x)
 
     def createWidgets(self):
 
@@ -59,6 +70,18 @@ class Application(Frame):
         self.prime_test_s["text"] = "Primality Sieve Test"
         self.prime_test_s["command"] = self.primality_test_s
         self.prime_test_s.pack({"side": "left"})
+        
+        # PRIMALITY FERMATS LITTLE THEOREM BUTTON
+        self.prime_test_f = Button(self)
+        self.prime_test_f["text"] = "Primality Test Fermat's Little Theorem"
+        self.prime_test_f["command"] = self.primality_test_f
+        self.prime_test_f.pack({"side": "left"})
+
+        # GENERATE IMAGE BUTTON
+        self.gen_img = Button(self)
+        self.gen_img["text"] = "Generate Image"
+        self.gen_img["command"] = self.generate_image
+        self.gen_img.pack({"side": "left"})
 
 
 

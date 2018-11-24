@@ -6,11 +6,12 @@ def gcd_alg(x, y):
 
     #Base Case
     if c == 0:
-        print(y)
+        print("answer: ", y)
         return y
 
     # Recursive Call
     else:
+        print("gcd(", y, c, ")")
         return gcd_alg(y, c)
 
 

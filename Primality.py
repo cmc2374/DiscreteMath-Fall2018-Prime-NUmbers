@@ -5,10 +5,10 @@ def divide_prime(input):
     n = int(input)
 
     #Floor function of sqrt() is our max
-    max = int(math.sqrt(n))
+    max = int(math.floor((math.sqrt(n))))
 
     #Divide n by i in the range of 2->sqrt(n)
-    for i in range(2, max):
+    for i in range(2, max + 1):
 
         if n % i == 0:
             print(n, " is NOT prime")
@@ -31,7 +31,7 @@ def sieve(input):
     n = n + 1
 
     #Add all items to the list
-    i = 0;
+    i = 0
     for x in range(0, n):
         list.append(i)
         i = i + 1
@@ -71,4 +71,15 @@ def sieve_sift(num, list):
         print(n, "is prime")
 
 
+def fermats_little(input):
 
+    # convert to int
+    n = int(input)
+
+    value = int(math.pow(2, n))
+    if value % n == 2 % n:
+        print(n, " is prime")
+
+    else:
+
+        print(n, " is NOT prime")
