@@ -15,7 +15,8 @@ Primality.py
 GCD.py
 
 //Insert Partner's code here:
-
+prime_distribution.py
+prime_factorization.py
 
 Non Code:
 Report.pdf
@@ -26,6 +27,7 @@ Note:
 The menu is a class that has only been tested for Windows devices. If the GUI does not appear
 please just run code from their respective files (hence why it was built with this multi-file depedncy
 to safegaurd in the case the menu module was Unix Based system incompatible. 
+To run prime_distribution.py and have tables show in python, $pip install PrettyTable
 
 
 Work Division:
