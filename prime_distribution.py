@@ -35,7 +35,7 @@ def prime_dist():
     c = prettytable.PrettyTable(["Followed by Ending in:", "Ending in 7:"])
     d = prettytable.PrettyTable(["Followed by Ending in:", "Ending in 9:"])
 
-    #Question 3 and 4 and 5
+    #Question 3 and 4
     pos = int(0)
     curdig = int(0)
     nextdig = int(0)
@@ -56,7 +56,6 @@ def prime_dist():
     q3d3 = int(0)
     q3d7 = int(0)
     q3d9 = int(0)
-    twinprimes = []
     while(pos<(len(primes)-2)): #stops 1 before final item in list of primes
         curdig = int(primes[pos]) %10
         nextdig = int(primes[pos+1])%10
@@ -97,10 +96,9 @@ def prime_dist():
                 q3d7+=7
             elif(nextdig==9):
                 q3d9+=1
-        #Q4 + 5
+        #Q4
         if( (int(primes[pos]) +2) == int(primes[pos+1])):
             numtwins +=1
-            twinprimes.append(int(primes[pos]))
 
         pos += 1
 
@@ -135,11 +133,6 @@ def prime_dist():
     y_val = []
     less_primes = []
     iter = int(0)
-    # while (iter<len(primes)):
-    #     if((iter%10000)==0):
-    #         less_primes.append(primes[iter])
-    #         y_val.append(iter+1)
-    #     iter+=1
 
     while (iter<30):
         less_primes.append(primes[iter])
@@ -154,16 +147,3 @@ def prime_dist():
     plt.xlabel("x")
     print("Q5: See table in popup. Limited number of values to show here because would otherwise not generate graph in reasonable amount of time. Click full screen button in upper right hand corner of popup to see in more detail.")
     plt.show()
-
-
-
-    #Graph for 5
-    # y_val = []
-    # iter = int(0)
-    # while (iter<len(twinprimes)):
-    #     iter+=1
-    #     y_val.append(y_val)
-    #
-    # plt.plot(y_val, twinprimes,'bo')
-    # plt.axis([0,len(iter),0,twinprimes[len(twinprimes)]])
-    # plt.show()

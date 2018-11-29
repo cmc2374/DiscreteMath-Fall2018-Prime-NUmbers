@@ -36,14 +36,16 @@ class Application(Frame):
         Primality.fermats_little(x)
 
     def generate_image(self):
-         print("Enter A Number")
-         x = input()
-         gen_image.gen_image(x)
+        print("Enter A Number")
+        x = input()
+        gen_image.gen_image(x)
 
     def prime_fact(self):
-         print("Enter A Number")
-         x = input()
-         print(prime_factorization.trial_division(x))
+        print("Might take a minute or two to finish Q3 time check. If you would like to check for more digits, simply go to code and uncomment sections that iterate more digits (shortened here so user doesn't have to wait so long)")
+        prime_factorization.time_check()
+        print("Enter A Number")
+        x = input()
+        print(prime_factorization.trial_division(x))
 
     def prime_dist(self):
          prime_distribution.prime_dist()
