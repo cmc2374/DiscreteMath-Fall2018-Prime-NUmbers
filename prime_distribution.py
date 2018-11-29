@@ -2,14 +2,15 @@ import math
 import prettytable
 import matplotlib.pyplot as plt
 
+
 def prime_dist():
 
     print("Q1: See imported list of a million primes in primes1.txt.")
 
     primes = []
     primes = open("primes1.txt").read().split()
-    #for i in primes:
-    #    print(primes)
+    # for i in primes:
+    #    print(int(i))
 
     num1 = int(0)
     num3 = int(0)
@@ -30,10 +31,10 @@ def prime_dist():
 
     print("Q2: Percentage of first million primes ending in 1 is "+str(num1/10000)+"%, ending in 3 is "+str(num3/10000)+"%, ending in 7 is "+str(num7/10000)+"%, ending in 9 is "+str(num9/10000)+"%.")
 
-    a = prettytable.PrettyTable(["Followed by Ending in:", "Ending in 1:"])
-    b = prettytable.PrettyTable(["Followed by Ending in:", "Ending in 3:"])
-    c = prettytable.PrettyTable(["Followed by Ending in:", "Ending in 7:"])
-    d = prettytable.PrettyTable(["Followed by Ending in:", "Ending in 9:"])
+    a = prettytable.PrettyTable(["Last Digit","Followed by Last Dig = 1", "Followed by Last Dig = 3", "Followed by Last Dig = 7", "Followed by Last Dig = 9"])
+    # b = prettytable.PrettyTable(["Followed by Ending in:", "Ending in 3:"])
+    # c = prettytable.PrettyTable(["Followed by Ending in:", "Ending in 7:"])
+    # d = prettytable.PrettyTable(["Followed by Ending in:", "Ending in 9:"])
 
     #Question 3 and 4
     pos = int(0)
@@ -63,19 +64,23 @@ def prime_dist():
         if(curdig==1):
             if(nextdig==1):
                 q3a1+=1
+                # print(int(primes[pos]) , " ends in" , curdig, "Followed by ",int(primes[pos+1]) , " ends in " , nextdig)
             elif(nextdig==3):
                 q3a3+=1
+                # print(int(primes[pos]) , " ends in" , curdig, "Followed by ",int(primes[pos+1]) , " ends in " , nextdig)
             elif(nextdig==7):
-                q3a7+=7
+                q3a7+=1
+                # print(int(primes[pos]) , " ends in" , curdig, "Followed by ",int(primes[pos+1]) , " ends in " , nextdig)
             elif(nextdig==9):
                 q3a9+=1
+                # print(int(primes[pos]) , " ends in" , curdig, "Followed by ",int(primes[pos+1]) , " ends in " , nextdig)
         elif(curdig==3):
             if(nextdig==1):
                 q3b1+=1
             elif(nextdig==3):
                 q3b3+=1
             elif(nextdig==7):
-                q3b7+=7
+                q3b7+=1
             elif(nextdig==9):
                 q3b9+=1
         elif(curdig==7):
@@ -84,7 +89,7 @@ def prime_dist():
             elif(nextdig==3):
                 q3c3+=1
             elif(nextdig==7):
-                q3c7+=7
+                q3c7+=1
             elif(nextdig==9):
                 q3c9+=1
         elif(curdig==9):
@@ -93,7 +98,7 @@ def prime_dist():
             elif(nextdig==3):
                 q3d3+=1
             elif(nextdig==7):
-                q3d7+=7
+                q3d7+=1
             elif(nextdig==9):
                 q3d9+=1
         #Q4
@@ -102,26 +107,32 @@ def prime_dist():
 
         pos += 1
 
-    a.add_row([1, q3a1])
-    a.add_row([3, q3a3])
-    a.add_row([7, q3a7])
-    a.add_row([9, q3a9])
-    print("\nQ3a: \n",a)
-    b.add_row([1, q3b1])
-    b.add_row([3, q3b3])
-    b.add_row([7, q3b7])
-    b.add_row([9, q3b9])
-    print("\nQ3b: \n",b)
-    c.add_row([1, q3c1])
-    c.add_row([3, q3c3])
-    c.add_row([7, q3c7])
-    c.add_row([9, q3c9])
-    print("\nQ3c: \n",c)
-    d.add_row([1, q3d1])
-    d.add_row([3, q3d3])
-    d.add_row([7, q3d7])
-    d.add_row([9, q3d9])
-    print("\nQ3d: \n",d)
+    a.add_row([1,q3a1,q3a3,q3a7,q3a9])
+    a.add_row([3,q3b1,q3b3,q3b7,q3b9])
+    a.add_row([7,q3c1,q3c3,q3c7,q3c9])
+    a.add_row([9,q3d1,q3d3,q3d7,q3d9])
+    print("\nQ3: \n",a)
+
+    # a.add_row([1, q3a1])
+    # a.add_row([3, q3a3])
+    # a.add_row([7, q3a7])
+    # a.add_row([9, q3a9])
+    # print("\nQ3a: \n",a)
+    # b.add_row([1, q3b1])
+    # b.add_row([3, q3b3])
+    # b.add_row([7, q3b7])
+    # b.add_row([9, q3b9])
+    # print("\nQ3b: \n",b)
+    # c.add_row([1, q3c1])
+    # c.add_row([3, q3c3])
+    # c.add_row([7, q3c7])
+    # c.add_row([9, q3c9])
+    # print("\nQ3c: \n",c)
+    # d.add_row([1, q3d1])
+    # d.add_row([3, q3d3])
+    # d.add_row([7, q3d7])
+    # d.add_row([9, q3d9])
+    # print("\nQ3d: \n",d)
 
     print("Q4: The number of twin primes is: ", numtwins)
 
