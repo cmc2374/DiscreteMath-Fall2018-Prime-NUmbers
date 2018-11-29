@@ -70,7 +70,7 @@ class Application(Frame):
         self.prime_test_s["text"] = "Primality Sieve Test"
         self.prime_test_s["command"] = self.primality_test_s
         self.prime_test_s.pack({"side": "left"})
-        
+
         # PRIMALITY FERMATS LITTLE THEOREM BUTTON
         self.prime_test_f = Button(self)
         self.prime_test_f["text"] = "Primality Test Fermat's Little Theorem"
