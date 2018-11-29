@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 def prime_dist():
 
-    print("See imported list of a million primes in primes1.txt.")
+    print("Q1: See imported list of a million primes in primes1.txt.")
 
     primes = []
     primes = open("primes1.txt").read().split()
@@ -28,7 +28,7 @@ def prime_dist():
         elif(right==9):
             num9 += 1
 
-    print("Percentage of first million primes ending in 1 is "+str(num1/1000000)+"%, ending in 3 is "+str(num3/1000000)+"%, ending in 7 is "+str(num7/1000000)+"%, ending in 9 is "+str(num9/1000000)+"%.")
+    print("Q2: Percentage of first million primes ending in 1 is "+str(num1/10000)+"%, ending in 3 is "+str(num3/10000)+"%, ending in 7 is "+str(num7/10000)+"%, ending in 9 is "+str(num9/10000)+"%.")
 
     a = prettytable.PrettyTable(["Followed by Ending in:", "Ending in 1:"])
     b = prettytable.PrettyTable(["Followed by Ending in:", "Ending in 3:"])
@@ -108,28 +108,52 @@ def prime_dist():
     a.add_row([3, q3a3])
     a.add_row([7, q3a7])
     a.add_row([9, q3a9])
-    print(a)
+    print("\nQ3a: \n",a)
     b.add_row([1, q3b1])
     b.add_row([3, q3b3])
     b.add_row([7, q3b7])
     b.add_row([9, q3b9])
-    print(b)
+    print("\nQ3b: \n",b)
     c.add_row([1, q3c1])
     c.add_row([3, q3c3])
     c.add_row([7, q3c7])
     c.add_row([9, q3c9])
-    print(c)
+    print("\nQ3c: \n",c)
     d.add_row([1, q3d1])
     d.add_row([3, q3d3])
     d.add_row([7, q3d7])
     d.add_row([9, q3d9])
-    print(d)
+    print("\nQ3d: \n",d)
 
-    print("The number of twin primes is: ", numtwins)
+    print("Q4: The number of twin primes is: ", numtwins)
 
     with open('primes_line.txt', 'w+') as f:
         for item in primes:
             f.write("%s\n" % item)
+
+    #Graph for 5
+    y_val = []
+    less_primes = []
+    iter = int(0)
+    # while (iter<len(primes)):
+    #     if((iter%10000)==0):
+    #         less_primes.append(primes[iter])
+    #         y_val.append(iter+1)
+    #     iter+=1
+
+    while (iter<30):
+        less_primes.append(primes[iter])
+        y_val.append(iter)
+        iter+=1
+
+    axes = int(less_primes[len(less_primes)-1])
+
+    plt.plot(less_primes,y_val,'bo')
+    plt.axis([0,iter,0,axes])
+    plt.ylabel("π(x)")
+    plt.xlabel("x")
+    print("Q5: See table in popup. Limited number of values to show here because would otherwise not generate graph in reasonable amount of time. Click full screen button in upper right hand corner of popup to see in more detail.")
+    plt.show()
 
 
 
