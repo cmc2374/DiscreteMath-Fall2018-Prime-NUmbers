@@ -2,135 +2,144 @@ import math
 import prettytable
 import matplotlib.pyplot as plt
 
-primes = []
-primes = open("primes1.txt").read().split()
-#for i in primes:
-#    print(primes)
+def prime_dist():
 
-num1 = int(0)
-num3 = int(0)
-num7 = int(0)
-num9 = int(0)
-right = int(0)
+    print("See imported list of a million primes in primes1.txt.")
 
-#Question 2
-for i in primes:
-    right = int(i)%10
-    if(right==1):
-        num1 += 1
-    elif(right==3):
-        num3 += 1
-    elif(right==7):
-        num7 += 1
-    elif(right==9):
-        num9 += 1
+    primes = []
+    primes = open("primes1.txt").read().split()
+    #for i in primes:
+    #    print(primes)
 
-print("Percentage of first million primes ending in 1 is "+str(num1/1000000)+"%, ending in 3 is "+str(num3/1000000)+"%, ending in 7 is "+str(num7/1000000)+"%, ending in 9 is "+str(num9/1000000)+"%.")
+    num1 = int(0)
+    num3 = int(0)
+    num7 = int(0)
+    num9 = int(0)
+    right = int(0)
+    #Question 2
+    for i in primes:
+        right = int(i)%10
+        if(right==1):
+            num1 += 1
+        elif(right==3):
+            num3 += 1
+        elif(right==7):
+            num7 += 1
+        elif(right==9):
+            num9 += 1
 
-a = prettytable.PrettyTable(["Followed by Ending in:", "Ending in 1:"])
-b = prettytable.PrettyTable(["Followed by Ending in:", "Ending in 3:"])
-c = prettytable.PrettyTable(["Followed by Ending in:", "Ending in 7:"])
-d = prettytable.PrettyTable(["Followed by Ending in:", "Ending in 9:"])
+    print("Percentage of first million primes ending in 1 is "+str(num1/1000000)+"%, ending in 3 is "+str(num3/1000000)+"%, ending in 7 is "+str(num7/1000000)+"%, ending in 9 is "+str(num9/1000000)+"%.")
 
-#Question 3 and 4 and 5
-pos = int(0)
-curdig = int(0)
-nextdig = int(0)
-numtwins = int(0)
-q3a1 = int(0)
-q3a3 = int(0)
-q3a7 = int(0)
-q3a9 = int(0)
-q3b1 = int(0)
-q3b3 = int(0)
-q3b7 = int(0)
-q3b9 = int(0)
-q3c1 = int(0)
-q3c3 = int(0)
-q3c7 = int(0)
-q3c9 = int(0)
-q3d1 = int(0)
-q3d3 = int(0)
-q3d7 = int(0)
-q3d9 = int(0)
-twinprimes = []
-while(pos<(len(primes)-2)): #stops 1 before final item in list of primes
-    curdig = int(primes[pos]) %10
-    nextdig = int(primes[pos+1])%10
-    #Q3
-    if(curdig==1):
-        if(nextdig==1):
-            q3a1+=1
-        elif(nextdig==3):
-            q3a3+=1
-        elif(nextdig==7):
-            q3a7+=7
-        elif(nextdig==9):
-            q3a9+=1
-    elif(curdig==3):
-        if(nextdig==1):
-            q3b1+=1
-        elif(nextdig==3):
-            q3b3+=1
-        elif(nextdig==7):
-            q3b7+=7
-        elif(nextdig==9):
-            q3b9+=1
-    elif(curdig==7):
-        if(nextdig==1):
-            q3c1+=1
-        elif(nextdig==3):
-            q3c3+=1
-        elif(nextdig==7):
-            q3c7+=7
-        elif(nextdig==9):
-            q3c9+=1
-    elif(curdig==9):
-        if(nextdig==1):
-            q3d1+=1
-        elif(nextdig==3):
-            q3d3+=1
-        elif(nextdig==7):
-            q3d7+=7
-        elif(nextdig==9):
-            q3d9+=1
-    #Q4 + 5
-    if( (int(primes[pos]) +2) == int(primes[pos+1])):
-        numtwins +=1
-        twinprimes.append(int(primes[pos]))
+    a = prettytable.PrettyTable(["Followed by Ending in:", "Ending in 1:"])
+    b = prettytable.PrettyTable(["Followed by Ending in:", "Ending in 3:"])
+    c = prettytable.PrettyTable(["Followed by Ending in:", "Ending in 7:"])
+    d = prettytable.PrettyTable(["Followed by Ending in:", "Ending in 9:"])
 
-    pos += 1
+    #Question 3 and 4 and 5
+    pos = int(0)
+    curdig = int(0)
+    nextdig = int(0)
+    numtwins = int(0)
+    q3a1 = int(0)
+    q3a3 = int(0)
+    q3a7 = int(0)
+    q3a9 = int(0)
+    q3b1 = int(0)
+    q3b3 = int(0)
+    q3b7 = int(0)
+    q3b9 = int(0)
+    q3c1 = int(0)
+    q3c3 = int(0)
+    q3c7 = int(0)
+    q3c9 = int(0)
+    q3d1 = int(0)
+    q3d3 = int(0)
+    q3d7 = int(0)
+    q3d9 = int(0)
+    twinprimes = []
+    while(pos<(len(primes)-2)): #stops 1 before final item in list of primes
+        curdig = int(primes[pos]) %10
+        nextdig = int(primes[pos+1])%10
+        #Q3
+        if(curdig==1):
+            if(nextdig==1):
+                q3a1+=1
+            elif(nextdig==3):
+                q3a3+=1
+            elif(nextdig==7):
+                q3a7+=7
+            elif(nextdig==9):
+                q3a9+=1
+        elif(curdig==3):
+            if(nextdig==1):
+                q3b1+=1
+            elif(nextdig==3):
+                q3b3+=1
+            elif(nextdig==7):
+                q3b7+=7
+            elif(nextdig==9):
+                q3b9+=1
+        elif(curdig==7):
+            if(nextdig==1):
+                q3c1+=1
+            elif(nextdig==3):
+                q3c3+=1
+            elif(nextdig==7):
+                q3c7+=7
+            elif(nextdig==9):
+                q3c9+=1
+        elif(curdig==9):
+            if(nextdig==1):
+                q3d1+=1
+            elif(nextdig==3):
+                q3d3+=1
+            elif(nextdig==7):
+                q3d7+=7
+            elif(nextdig==9):
+                q3d9+=1
+        #Q4 + 5
+        if( (int(primes[pos]) +2) == int(primes[pos+1])):
+            numtwins +=1
+            twinprimes.append(int(primes[pos]))
 
-a.add_row([1, q3a1])
-a.add_row([3, q3a3])
-a.add_row([7, q3a7])
-a.add_row([9, q3a9])
-print(a)
-b.add_row([1, q3b1])
-b.add_row([3, q3b3])
-b.add_row([7, q3b7])
-b.add_row([9, q3b9])
-print(b)
-c.add_row([1, q3c1])
-c.add_row([3, q3c3])
-c.add_row([7, q3c7])
-c.add_row([9, q3c9])
-print(c)
-d.add_row([1, q3d1])
-d.add_row([3, q3d3])
-d.add_row([7, q3d7])
-d.add_row([9, q3d9])
-print(d)
+        pos += 1
 
-print("The number of twin primes is: ", numtwins)
+    a.add_row([1, q3a1])
+    a.add_row([3, q3a3])
+    a.add_row([7, q3a7])
+    a.add_row([9, q3a9])
+    print(a)
+    b.add_row([1, q3b1])
+    b.add_row([3, q3b3])
+    b.add_row([7, q3b7])
+    b.add_row([9, q3b9])
+    print(b)
+    c.add_row([1, q3c1])
+    c.add_row([3, q3c3])
+    c.add_row([7, q3c7])
+    c.add_row([9, q3c9])
+    print(c)
+    d.add_row([1, q3d1])
+    d.add_row([3, q3d3])
+    d.add_row([7, q3d7])
+    d.add_row([9, q3d9])
+    print(d)
 
-#Graph for 5
-y_val = []
-iter = int(0)
-while (iter<numtwins):
-    iter+=1
-    y_val.append(iter)
+    print("The number of twin primes is: ", numtwins)
 
-plt.plot(iter, twinprimes)
-plt.axis(0,len(iter),0,twinprimes[len(twinprimes)])
-plt.show()
+    with open('primes_line.txt', 'w+') as f:
+        for item in primes:
+            f.write("%s\n" % item)
+
+
+
+    #Graph for 5
+    # y_val = []
+    # iter = int(0)
+    # while (iter<len(twinprimes)):
+    #     iter+=1
+    #     y_val.append(y_val)
+    #
+    # plt.plot(y_val, twinprimes,'bo')
+    # plt.axis([0,len(iter),0,twinprimes[len(twinprimes)]])
+    # plt.show()

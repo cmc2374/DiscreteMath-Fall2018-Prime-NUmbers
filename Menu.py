@@ -4,6 +4,8 @@ import GCD
 import Sieve
 import Primality
 import gen_image
+import prime_factorization
+import prime_distribution
 from tkinter import *
 
 class Application(Frame):
@@ -37,6 +39,14 @@ class Application(Frame):
          print("Enter A Number")
          x = input()
          gen_image.gen_image(x)
+
+    def prime_fact(self):
+         print("Enter A Number")
+         x = input()
+         print(prime_factorization.trial_division(x))
+
+    def prime_dist(self):
+         prime_distribution.prime_dist()
 
     def createWidgets(self):
 
@@ -77,11 +87,25 @@ class Application(Frame):
         self.prime_test_f["command"] = self.primality_test_f
         self.prime_test_f.pack({"side": "left"})
 
+        # GENERATE PRIME FACTORIZATION BUTTON
+        self.prime_factorization = Button(self)
+        self.prime_factorization["text"] = "Prime Factorization"
+        self.prime_factorization["command"] = self.prime_fact
+        self.prime_factorization.pack({"side": "left"})
+
+        # GENERATE PRIME DISTRIBUTION BUTTON
+        self.prime_distribution = Button(self)
+        self.prime_distribution["text"] = "Prime Distribution"
+        self.prime_distribution["command"] = self.prime_dist
+        self.prime_distribution.pack({"side": "left"})
+
         # GENERATE IMAGE BUTTON
         self.gen_img = Button(self)
         self.gen_img["text"] = "Generate Image"
         self.gen_img["command"] = self.generate_image
         self.gen_img.pack({"side": "left"})
+
+
 
 
 

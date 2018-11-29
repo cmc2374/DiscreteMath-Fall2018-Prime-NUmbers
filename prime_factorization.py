@@ -5,13 +5,13 @@ def trial_division(input):
     n = int(input)
     factorization = []
 
-      #start w smallest possible prime factor
-    minf = 2
-    while n>1:
-        if n%f ==0:
-            factorization.append(f)
-            n= n/f
+    #start w smallest possible prime factor
+    min = int(2)
+    while (n>1):
+        if (n%min ==0):
+            factorization.append(min)
+            n= n/min
         else:
-            f = f+1
+            min = min+1
 
     return factorization
