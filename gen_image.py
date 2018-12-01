@@ -70,4 +70,3 @@ def gen_image(input):
 
     #align to standard cartesian coordinates
     img.rotate(90).show()
-
