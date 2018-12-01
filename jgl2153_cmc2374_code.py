@@ -1,4 +1,4 @@
-from PIL import Image
+import PIL.Image
 from tkinter import *
 #skeleton code taken from https://docs.python.org/2/library/tkinter.html#Tkinter.Tk (Python Software Foundation)
 # This is GNU licenced and intended to be used as template as we have done below
@@ -230,7 +230,7 @@ def gen_image(input):
     this_list = final_list
     #format the image
     size = n
-    img = Image.new("RGB", (size, size))
+    img = PIL.Image.new("RGB", (size, size))
     pixels = []
 
     x = 0
@@ -285,44 +285,76 @@ def trial_division(input):
 def time_check():
     start_time = time.time()
     for i in range(1,10):
-        trial_division(i)
-    time1 = (time.time() - start_time)/(10-1)
-    for i in range(10,100):
-        trial_division(i)
-    time2 = (time.time() - time1)/(100-10)
-    for i in range(100,1000):
-        trial_division(i)
-    time3 = (time.time() - time2)/(1000-100)
-    for i in range(1000,10000):
-        trial_division(i)
-    time4 = (time.time() - time3)/(10000-1000)
-    for i in range(10000,100000):
-        trial_division(i)
-    time5 = (time.time() - time4)/(100000-10000)
-    for i in range(100000,1000000):
-        trial_division(i)
-    time6 = (time.time() - time5)(1000000-100000)
-    for i in range(1000000,10000000):
-        trial_division(i)
-    time7 = (time.time() - time6)/(10000000-1000000)
-    for i in range(10000000,100000000):
-        trial_division(i)
-    time8 = (time.time() - time7)/(100000000-10000000)
-    # for i in range(100000000,1000000000):
-    #     trial_division(i)
-    # time9 = time.time() - time8
-    # for i in range(1000000000,10000000000):
-    #     trial_division(i)
-    # time10 = time.time() - time9
-    # for i in range(10000000000,100000000000):
-    #     trial_division(i)
-    # time11 = time.time() - time10
-    # for i in range(100000000000,1000000000000):
-    #     trial_division(i)
+        trial_division(random.randint(1,10))
+    elapsed_time = time.time() - start_time
+    time1 = elapsed_time/10
+
+    start_time = time.time()
+    for i in range(1,10):
+        trial_division(random.randint(10,100))
+    elapsed_time = time.time() - start_time
+    time2 = elapsed_time/10
+
+    start_time = time.time()
+    for i in range(1,10):
+        trial_division(random.randint(100,1000))
+    elapsed_time = time.time() - start_time
+    time3 = elapsed_time/10
+
+    start_time = time.time()
+    for i in range(1,10):
+        trial_division(random.randint(1000,10000))
+    elapsed_time = time.time() - start_time
+    time4 = elapsed_time/10
+
+    start_time = time.time()
+    for i in range(1,10):
+        trial_division(random.randint(10000,100000))
+    elapsed_time = time.time() - start_time
+    time5 = elapsed_time/10
+
+    start_time = time.time()
+    for i in range(1,10):
+        trial_division(random.randint(100000,1000000))
+    elapsed_time = time.time() - start_time
+    time6 = elapsed_time/10
+
+    start_time = time.time()
+    for i in range(1,10):
+        trial_division(random.randint(1000000,10000000))
+    elapsed_time = time.time() - start_time
+    time7 = elapsed_time/10
+
+    start_time = time.time()
+    for i in range(1,10):
+        trial_division(random.randint(10000000,100000000))
+    elapsed_time = time.time() - start_time
+    time8 = elapsed_time/10
+
+    start_time = time.time()
+    for i in range(1,10):
+        trial_division(random.randint(100000000,1000000000))
+    elapsed_time = time.time() - start_time
+    time9 = elapsed_time/10
+
+    start_time = time.time()
+    for i in range(1,10):
+        trial_division(random.randint(1000000000,10000000000))
+    elapsed_time = time.time() - start_time
+    time10 = elapsed_time/10
+    #
+    # start_time = time.time()
+    # for i in range(1,10):
+    #     trial_division(random.randint(10000000000,100000000000))
+    # elapsed_time = time.time() - start_time
+    # time11 = elapsed_time/10
+
+    # for i in range(1,100):
+    #     trial_division(random.randint(100000000000,1000000000000))
     # time12 = time.time() - time11
-    # for i in range(1000000000000,10000000000000):
-    #     trial_division(i)
-    time13 = elapsed_time = time.time() - time12
+    # for i in range(1,100):
+    #     trial_division(random.randint(1000000000000,10000000000000))
+    # time13 = elapsed_time = time.time() - time12
     a = prettytable.PrettyTable(["Number of Digits:", "Time (Seconds):"])
     a.add_row([1, time1])
     a.add_row([2, time2])
@@ -332,8 +364,8 @@ def time_check():
     a.add_row([6, time6])
     a.add_row([7, time7])
     a.add_row([8, time8])
-    # a.add_row([9, time9])
-    # a.add_row([10, time10])
+    a.add_row([9, time9])
+    a.add_row([10, time10])
     # a.add_row([11, time11])
     # a.add_row([12, time12])
     # a.add_row([13, time13])
